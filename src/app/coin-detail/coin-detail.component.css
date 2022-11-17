@@ -1,6 +1,7 @@
 .detail_{
   background-color: #212121;
   color: white;
+  height: 95vh;
 }
 .details {
   width: 30%;
@@ -37,14 +38,14 @@
 
 .more-detail {
   padding: 10px;
-  margin: 10px;
+  margin: 20px;
   line-height: 50px;
 }
-  .title {
+.more-detail > .title {
       font-size: 30px;
       font-weight: 600;
   }
-  .value {
+  .more-detail > .value {
       font-size: 30px;
       font-weight: 500;
   }
