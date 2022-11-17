@@ -1,9 +1,9 @@
 <div class="detail_">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-3 details">
+      <div class="col-md-3 details" routerLink="coin-list">
         <div class="img">
-          <img [src]="coinData?.image?.large" alt=""><h3 class="text-center" style="font-size: 23px;">{{coinData?.name}}</h3>
+          <img [src]="coinData?.image?.small" alt=""><h3 class="text-center" style="font-size: 23px;">{{coinData?.name}}</h3>
           <h2 [innerHtml]="coinData?.description?.en.split('.')[0]"></h2>
           <div class="more-details">
             <span class="title">Rank : </span><span class="value">{{coinData?.market_cap_rank}}</span><br>

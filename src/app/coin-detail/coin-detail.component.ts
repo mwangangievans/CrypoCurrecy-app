@@ -61,7 +61,7 @@ export class CoinDetailComponent implements OnInit {
 
   }
   getCoinData(){
-    this.api.getCurrencyById(this.coinId).subscribe(res=>{
+    this.api.getCurrencyById(this.coinId).subscribe(res=>{ 
       this.coinData = res ;
 
 
