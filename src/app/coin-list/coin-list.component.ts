@@ -4,6 +4,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { Router } from '@angular/router';
+import { CoinService } from '../coin.service';
 
 @Component({
   selector: 'app-coin-list',
@@ -23,23 +24,30 @@ export class CoinListComponent implements OnInit {
 
 
 
-  constructor(private api: ApiService ,   private router : Router) {}
+  constructor(private api: ApiService ,   private router : Router ,  private currencyService : CoinService) {}
 
   ngOnInit(): void {
-    this.getBannerData();
     this.getAllData();
+    this.getBannerData();
+    this.currencyService.getCurrency()
+    .subscribe(val =>{
+      this.currency = val;
+      console.log("updated currrency..." +this.currency);
+      this.getAllData();
+      this.getBannerData();
+    })
   }
 
 
 
   getBannerData() {
-    this.api.getTrendingCurrency('INR').subscribe((res) => {
+    this.api.getTrendingCurrency(this.currency).subscribe((res) => {
       this.bannerData = res;
       // console.log(res);
     });
   }
   getAllData() {
-    this.api.getCurrencyData('INR').subscribe((res) => {
+    this.api.getCurrencyData(this.currency).subscribe((res) => {
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
