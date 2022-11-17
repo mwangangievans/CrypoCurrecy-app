@@ -13,9 +13,10 @@ import { CoinDetailComponent } from './coin-detail/coin-detail.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClientModule} from '@angular/common/http'
-
-
+import { HttpClientModule} from '@angular/common/http';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,10 @@ import { HttpClientModule} from '@angular/common/http'
     AppRoutingModule,
     RouterModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]
