@@ -99,6 +99,11 @@ export class CoinDetailComponent implements OnInit {
 
   getGraphData(days:number){
     this.days = days
+    this.currencyService.getCurrency()
+      .subscribe(val =>{
+        this.currency = val;
+      })
+
     this.api.getGrahicalCurrencyData(this.coinId,this.currency,this.days)
     .subscribe(res=>{
       setTimeout(() => {
